@@ -1,0 +1,10 @@
+# robots.txt for vscommission.de
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://vscommission.de/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
