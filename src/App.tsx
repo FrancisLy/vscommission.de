@@ -13,6 +13,7 @@ import Resources from "@/pages/Resources";
 import Blog from "@/pages/Blog";
 import CaseStudiesPage from "@/pages/CaseStudiesPage";
 import Contact from "@/pages/Contact";
+import ReviewPage from "@/pages/ReviewPage";
 import Impressum from "@/pages/legal/Impressum";
 import Datenschutz from "@/pages/legal/Datenschutz";
 import AGB from "@/pages/legal/AGB";
@@ -21,44 +22,55 @@ import CookiePolicy from "@/pages/legal/CookiePolicy";
 export default function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <Routes>
+        {/* Review page - standalone without main layout */}
+        <Route path="/review" element={<ReviewPage />} />
 
-          {/* Advertiser Routes */}
-          <Route path="/fuer-werbetreibende" element={<Advertisers />} />
-          <Route path="/fuer-werbetreibende/loesungen" element={<AdvertiserSolutions />} />
-          <Route path="/fuer-werbetreibende/services" element={<AdvertiserServices />} />
+        {/* Main site with layout */}
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
 
-          {/* Publisher Routes */}
-          <Route path="/fuer-publisher" element={<Publishers />} />
-          <Route path="/fuer-publisher/typen" element={<PublisherTypesPage />} />
-          <Route path="/fuer-publisher/registrierung" element={<PublisherRegister />} />
+                {/* Advertiser Routes */}
+                <Route path="/fuer-werbetreibende" element={<Advertisers />} />
+                <Route path="/fuer-werbetreibende/loesungen" element={<AdvertiserSolutions />} />
+                <Route path="/fuer-werbetreibende/services" element={<AdvertiserServices />} />
 
-          {/* Brands */}
-          <Route path="/marken-programme" element={<Brands />} />
+                {/* Publisher Routes */}
+                <Route path="/fuer-publisher" element={<Publishers />} />
+                <Route path="/fuer-publisher/typen" element={<PublisherTypesPage />} />
+                <Route path="/fuer-publisher/registrierung" element={<PublisherRegister />} />
 
-          {/* About */}
-          <Route path="/ueber-uns" element={<About />} />
+                {/* Brands */}
+                <Route path="/marken-programme" element={<Brands />} />
 
-          {/* Resources */}
-          <Route path="/ressourcen" element={<Resources />} />
-          <Route path="/ressourcen/blog" element={<Blog />} />
-          <Route path="/ressourcen/case-studies" element={<CaseStudiesPage />} />
+                {/* About */}
+                <Route path="/ueber-uns" element={<About />} />
 
-          {/* Contact */}
-          <Route path="/kontakt" element={<Contact />} />
+                {/* Resources */}
+                <Route path="/ressourcen" element={<Resources />} />
+                <Route path="/ressourcen/blog" element={<Blog />} />
+                <Route path="/ressourcen/case-studies" element={<CaseStudiesPage />} />
 
-          {/* Legal */}
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/agb" element={<AGB />} />
-          <Route path="/cookie-richtlinie" element={<CookiePolicy />} />
+                {/* Contact */}
+                <Route path="/kontakt" element={<Contact />} />
 
-          {/* 404 */}
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </Layout>
+                {/* Legal */}
+                <Route path="/impressum" element={<Impressum />} />
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/agb" element={<AGB />} />
+                <Route path="/cookie-richtlinie" element={<CookiePolicy />} />
+
+                {/* 404 */}
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
