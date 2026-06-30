@@ -94,7 +94,16 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-300">
-          <p>© {new Date().getFullYear()} VSCommission GmbH. Alle Rechte vorbehalten.</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <p>© {new Date().getFullYear()} VSCommission GmbH. Alle Rechte vorbehalten.</p>
+            <a
+              href="mailto:info@vscommission.de"
+              className="inline-flex items-center gap-1.5 text-primary-200 hover:text-accent transition-colors font-medium"
+            >
+              <Mail className="w-4 h-4" />
+              info@vscommission.de
+            </a>
+          </div>
           <p>
             Made with <span className="text-accent">♥</span> in Berlin
           </p>
